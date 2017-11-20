@@ -1,11 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './App.css';
-
-const shoppingListItemTypes = PropTypes.shape({
-  name: PropTypes.string,
-  qty: PropTypes.number
-});
 
 const shoppingList = [
   { name: 'Milk', qty: 1 },
@@ -28,20 +22,6 @@ const ShoppingList = ({ items }) => (
   </ul>
 );
 
-ShoppingList.propTypes = {
-  items: PropTypes.arrayOf(shoppingListItemTypes)
-};
-
-ShoppingList.defaultProps = {
-  items: []
-};
-
 const ShoppingListItem = ({ name, qty }) => (
   <li>{qty} x {name}</li>
 );
-
-ShoppingListItem.propTypes = shoppingListItemTypes;
-
-ShoppingListItem.defaultProps = {
-  qty: 0
-};
