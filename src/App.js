@@ -1,27 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ShoppingList from './components/ShoppingList'
+
 import './App.css';
 
-const shoppingList = [
-  { name: 'Milk', qty: 1 },
-  { name: 'Coke', qty: 2 },
-  { name: 'Flower', qty: 3 },
-  { name: 'Bread', qty: 4 }
+const shoppingListInfo = [
+  { id: 1, name: 'Milk', qty: 1, inTrolly: true },
+  { id: 2, name: 'Coke', qty: 2, inTrolly: false },
+  { id: 3, name: 'Flower', qty: 3, inTrolly: true },
+  { id: 4, name: 'Bread', qty: 4, inTrolly: false },
 ];
 
-export default function App() {
-  return (
-    <div className="App">
-      <ShoppingList items={shoppingList} />
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <ShoppingList items={shoppingListInfo} />
+      </div>
+    );
+  }
 }
-
-const ShoppingList = ({ items }) => (
-  <ul>
-    {items.map((item) => <ShoppingListItem key={item.name} name={item.name} qty={item.qty} />)}
-  </ul>
-);
-
-const ShoppingListItem = ({ name, qty }) => (
-  <li>{qty} x {name}</li>
-);
